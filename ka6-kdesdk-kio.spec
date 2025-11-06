@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	25.08.2
+%define		kdeappsver	25.08.3
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kdesdk-kio
 Summary:	kdesdk kios
 Name:		ka6-%{kaname}
-Version:	25.08.2
-Release:	2
+Version:	25.08.3
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	4d9ed738653ca50ff4771b41df52f58f
+# Source0-md5:	855ec0e459b2aa5ec769220b143a15fb
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.20
@@ -27,8 +27,8 @@ BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 %requires_eq_to Qt6Core Qt6Core-devel
-Obsoletes:	ka6-kdesdk-kioslaves < 22.08.0
 Obsoletes:	ka5-%{kaname} < %{version}
+Obsoletes:	ka6-kdesdk-kioslaves < 22.08.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,6 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kio/perldoc.so
+%{_libdir}/qt6/plugins/kf6/kio/perldoc.so
 %dir %{_datadir}/kio_perldoc
 %attr(755,root,root) %{_datadir}/kio_perldoc/pod2html.pl
