@@ -34,6 +34,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 kio from kdesdk package.
 
+%description -l pl.UTF-8
+kio z pakietu kdesdk.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
